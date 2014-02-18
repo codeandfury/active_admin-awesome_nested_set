@@ -46,9 +46,9 @@ module ActiveAdmin
       #    end
       #  end
       def sortable_tree_columns
-        column "fred".html_safe do |resource|
-          content_tag :p, edit_resource_path(resource)
-        end
+#        column "fred".html_safe do |resource|
+#          content_tag :p, edit_resource_path(resource)
+#        end
         column "&#9650;".html_safe do |resource|
           link_to("&#9650;".html_safe, self.send(:"move_up_admin_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") if resource.left_sibling
         end
