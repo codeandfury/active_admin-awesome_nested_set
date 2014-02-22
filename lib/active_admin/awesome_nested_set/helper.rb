@@ -50,12 +50,12 @@ module ActiveAdmin
 #          content_tag :p, edit_resource_path(resource)
 #        end
         column "&#9650;".html_safe do |resource|
-          direction = "move_up_#{params[:subdomain] == "admin" ? nil : "admin_"}"
-          link_to("&#9650;".html_safe, self.send(:"#{direction}#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") if resource.left_sibling
+#          direction = "move_up_#{params[:subdomain] == "admin" ? nil : "admin_"}"
+          link_to("&#9650;".html_safe, self.send(:"move_up_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") if resource.left_sibling
         end
         column "&#9660;".html_safe do |resource|
-          direction = "move_down_#{params[:subdomain] == "admin" ? nil : "admin_"}"
-          link_to("&#9660;".html_safe, self.send(:"#{direction}#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") if resource.right_sibling
+#          direction = "move_down_#{params[:subdomain] == "admin" ? nil : "admin_"}"
+          link_to("&#9660;".html_safe, self.send(:"move_down_#{resource.class.model_name.to_s.underscore.gsub("/", "_")}_path", resource), :class => "arrow") if resource.right_sibling
         end
       end
 
